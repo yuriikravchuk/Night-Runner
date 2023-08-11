@@ -11,8 +11,8 @@ public class Starter : MonoBehaviour
 
     private void Awake()
     {
-        _playerInput.UpSwipe += () => Debug.Log("Up");
-        _playerInput.DownSwipe += () => Debug.Log("Down");
+        _playerInput.UpSwipe += _player.OnUpSwipe;
+        _playerInput.DownSwipe += _player.OnDownSwipe;
         _playerInput.LeftSwipe += _player.OnLeftSwipe;
         _playerInput.RightSwipe += _player.OnRightSwipe;
 

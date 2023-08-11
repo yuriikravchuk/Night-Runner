@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9123519209373065045}
   - component: {fileID: 5532609148766882595}
   - component: {fileID: 1833293194872231039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2853259631368914612}
   - component: {fileID: 8408454512874125215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train Static
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -574,6 +574,10 @@ MonoBehaviour:
   - {fileID: 1343939553}
   - {fileID: 398735889}
   - {fileID: 188957069}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 192
+  _jumpForce: 6
 --- !u!1 &751617326
 GameObject:
   m_ObjectHideFlags: 0

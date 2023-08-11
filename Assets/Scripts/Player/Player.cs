@@ -7,9 +7,16 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private List<Transform> _positionPoints;
+    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private float _jumpForce = 10.0f;
 
     private int _currentPositionIndex = 1;
-    private const int _positionsCount = 3;
+    private float _distanceToFloor;
+
+    private void Awake()
+    {
+        _distanceToFloor = transform.position.y;
+    }
 
     public void OnLeftSwipe()
     {
@@ -29,12 +36,14 @@ public class Player : MonoBehaviour
 
     public void OnUpSwipe()
     {
-
+        if(IsGrounded())
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, _jumpForce, _rigidbody.velocity.z);
     }
 
     public void OnDownSwipe()
     {
-
+        if (IsGrounded() == false)
+            _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, - _jumpForce, _rigidbody.velocity.z);
     }
 
     private void Move(int pointIndex)
@@ -42,5 +51,10 @@ public class Player : MonoBehaviour
         _currentPositionIndex = pointIndex;
         Vector3 newPosition = new Vector3(_positionPoints[_currentPositionIndex].position.x, transform.position.y, transform.position.z);
         _rigidbody.MovePosition(newPosition);
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, _distanceToFloor + 0.01f);
     }
 }
